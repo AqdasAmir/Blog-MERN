@@ -22,6 +22,7 @@ export default function Home() {
       headers: { Authorization: `Bearer ${token}` }
     })
     setPosts(p => p.filter())
+    
   }
 
   return (
