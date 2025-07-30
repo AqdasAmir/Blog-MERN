@@ -6,6 +6,10 @@ const fs       = require('fs');
 const path     = require('path');
 require('dotenv').config();
 
+const app = express();
+app.use(cors());
+app.use(express.json());
+
 // 1️⃣ Ensure the uploads directory exists
 const uploadDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadDir)) {
@@ -23,9 +27,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+
 
 // 3️⃣ Serve images from the absolute path
 app.use('/uploads', express.static(uploadDir));

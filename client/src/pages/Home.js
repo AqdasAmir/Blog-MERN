@@ -9,7 +9,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get('', {
+      .get('http://localhost:5001/api/posts', {
         headers: token ? { Authorization: `Bearer ${token}` } : {}
       })
       .then(res => setPosts(res.data))
@@ -60,7 +60,7 @@ export default function Home() {
           >
             {p.imagePath && (
               <img
-                src={`http://______fill in the blank______/uploads/${p.imagePath}`}
+                src={`http://localhost:5001/uploads/${p.imagePath}`}
                 alt={p.title}
                 style={{ width: '100%', height: 180, objectFit: 'cover' }}
               />
