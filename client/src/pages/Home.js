@@ -21,7 +21,7 @@ export default function Home() {
     await axios.delete(`http://localhost:5001/api/posts/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
-    setPosts(p => p.filter())
+    setPosts(p => p.filter(post=>post._id !==id))
     
   }
 
